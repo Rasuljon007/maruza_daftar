@@ -14,7 +14,7 @@ Ingliz tilidagi ma'ruzalarni yozib oladi, matnga aylantiradi va AI yordamida kon
 - **Tahlil** Google Gemini (tekin).
 - **Telegram bot** long polling rejimida ishlaydi, webhook kerak emas.
 
-Noutbuk o'chsa yoki uxlab qolsa sayt ham ishlamaydi. Yozib olish esa telefonda davom etadi va server qaytgach yuboriladi.
+Noutbuk o'chsa yoki uxlab qolsa sayt ham ishlamaydi. `npm start` ishlab turganda Windows'ning uyqu rejimi avtomatik o'chiriladi (ekran o'chishi mumkin, bu normal). Qopqoqni yopsangiz baribir uxlaydi: buni Boshqaruv paneli → Quvvat sozlamalari → "Qopqoq yopilganda" → "Hech narsa qilmaslik" orqali o'zgartirish mumkin. Bu xususiyatni o'chirish uchun `.env` ga `KEEP_AWAKE=false` yozing. Yozib olish esa telefonda davom etadi va server qaytgach yuboriladi.
 
 ## Birinchi o'rnatish (Windows, PowerShell)
 

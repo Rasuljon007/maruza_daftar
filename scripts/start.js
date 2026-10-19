@@ -39,8 +39,36 @@ function startTunnel(port) {
   });
 }
 
+/**
+ * Windows: keeps the laptop from going to sleep while the server runs (the screen may
+ * still turn off). A small PowerShell helper holds the "system required" flag and exits
+ * by itself once this process is gone. Disable with KEEP_AWAKE=false.
+ */
+function keepAwake() {
+  if (process.platform !== 'win32' || process.env.KEEP_AWAKE === 'false') return null;
+  const script = `
+Add-Type -Name P -Namespace W -MemberDefinition '[DllImport("kernel32.dll")] public static extern uint SetThreadExecutionState(uint f);'
+while (Get-Process -Id ${process.pid} -ErrorAction SilentlyContinue) {
+  [W.P]::SetThreadExecutionState([uint32]"0x80000001") | Out-Null
+  Start-Sleep -Seconds 30
+}`;
+  try {
+    const child = spawn('powershell.exe', ['-NoProfile', '-NonInteractive', '-Command', script], {
+      windowsHide: true,
+      stdio: 'ignore',
+    });
+    child.on('error', (err) => console.warn(`[uyqu] Uyquni o'chirib bo'lmadi: ${err.message}`));
+    console.log("[uyqu] Server ishlayotganda noutbuk uxlab qolmaydi (qopqoqni yopmang).");
+    return child;
+  } catch (err) {
+    console.warn(`[uyqu] Uyquni o'chirib bo'lmadi: ${err.message}`);
+    return null;
+  }
+}
+
 async function main() {
   const { shutdown } = await startServer();
+  const awake = keepAwake();
   let tunnel = null;
 
   if (config.appUrl) {
@@ -64,6 +92,7 @@ async function main() {
 
   const stop = async () => {
     tunnel?.kill();
+    awake?.kill();
     await shutdown();
     process.exit(0);
   };
