@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#fbf8f1" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#15171c" media="(prefers-color-scheme: dark)">
+  <title>Yozib olish · Ma'ruza Daftari</title>
+  <link rel="stylesheet" href="/css/app.css">
+  <script type="module" src="/js/record.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">Ma'ruza <span>Daftari</span></a>
+    <div class="spacer"></div>
+    <button class="icon-btn" data-theme-toggle aria-label="Rang rejimini almashtirish" title="Kunduzgi / tungi rejim"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button>
+  </header>
+
+  <main class="wrap">
+    <!-- Setup -->
+    <section id="setup" class="card stack">
+      <h1><span class="mark">Ma'ruzani yozib olish</span></h1>
+      <div>
+        <label for="title">Ma'ruza nomi (ixtiyoriy)</label>
+        <input id="title" type="text" maxlength="200" placeholder="Masalan: Microeconomics, 5-ma'ruza" autocomplete="off">
+      </div>
+      <div>
+        <label for="slides">Prezentatsiya slaydlari soni</label>
+        <select id="slides"></select>
+      </div>
+      <div class="notice">📌 Yozib olishdan oldin professordan ruxsat olish tavsiya etiladi.</div>
+      <div class="notice">🎓 AI materiallari tayyorlanish uchun yordamchi vosita. Ularni tayyor ish sifatida topshirmang.</div>
+      <div class="notice small">Telefonni ma'ruzachiga yaqinroq qo'ying. Yozish paytida ekran o'chmaydi. Audio har 10 soniyada telefonda saqlanadi, internet bo'lsa serverga ham yuboriladi.</div>
+      <button id="startBtn" class="btn primary big block">🎙️ Yozishni boshlash</button>
+    </section>
+
+    <!-- Recording -->
+    <section id="recording" class="card stack hidden">
+      <div class="center muted small"><span class="rec-dot"></span><span id="recTitle">Yozilmoqda</span></div>
+      <div id="timer" class="timer" aria-live="off">00:00</div>
+      <div class="level" aria-hidden="true"><div id="level"></div></div>
+      <div id="sync" class="sync">Saqlanmoqda…</div>
+      <div class="rec-grid">
+        <button id="markBtn" class="btn marker big">⭐ Muhim!</button>
+        <button id="photoBtn" class="btn big">📷 Doska surati</button>
+      </div>
+      <div id="markInfo" class="small muted center"></div>
+      <button id="stopBtn" class="btn danger big block">⏹ Tugatish va yuborish</button>
+    </section>
+
+    <!-- Finishing -->
+    <section id="finishing" class="card stack hidden">
+      <h2>Yuborilmoqda…</h2>
+      <p id="finishMsg" class="muted">Audio serverga yuborilmoqda. Sahifani yopmang.</p>
+      <div class="progress"><div id="finishBar" style="width: 10%"></div></div>
+    </section>
+  </main>
+
+  <!-- In-page camera so the recording page stays in the foreground -->
+  <div id="camera" class="camera hidden" role="dialog" aria-label="Kamera">
+    <video id="cameraVideo" playsinline muted></video>
+    <div class="bar">
+      <button id="cameraCancel" class="btn">Bekor qilish</button>
+      <button id="cameraShot" class="btn marker">📸 Suratga olish</button>
+    </div>
+  </div>
+  <input id="photoInput" type="file" accept="image/*" capture="environment" class="hidden">
+</body>
+</html>

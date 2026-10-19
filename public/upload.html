@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Fayl yuklash · Ma'ruza Daftari</title>
+  <link rel="stylesheet" href="/css/app.css">
+  <script type="module" src="/js/upload.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">Ma'ruza <span>Daftari</span></a>
+    <div class="spacer"></div>
+    <button class="icon-btn" data-theme-toggle aria-label="Rang rejimini almashtirish" title="Kunduzgi / tungi rejim"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button>
+  </header>
+
+  <main class="wrap">
+    <section class="card stack">
+      <h1><span class="mark">Tayyor faylni yuklash</span></h1>
+      <p class="muted small">Audio yoki video fayl (mp3, m4a, wav, webm, mp4, ...), 300 MB gacha. Videodan faqat ovoz olinadi.</p>
+      <div>
+        <label for="file">Fayl</label>
+        <input id="file" type="file" accept="audio/*,video/*,.m4a,.mp3,.wav,.webm,.ogg,.opus,.mp4,.mov,.mkv,.aac,.flac,.amr,.3gp">
+      </div>
+      <div>
+        <label for="title">Ma'ruza nomi (ixtiyoriy)</label>
+        <input id="title" type="text" maxlength="200" autocomplete="off">
+      </div>
+      <div>
+        <label for="slides">Prezentatsiya slaydlari soni</label>
+        <select id="slides"></select>
+      </div>
+      <div>
+        <label for="notes">Izoh (ixtiyoriy)</label>
+        <textarea id="notes" maxlength="5000" placeholder="Masalan: professor vazifa haqida shunday dedi..."></textarea>
+      </div>
+      <div class="notice">🎓 AI materiallari tayyorlanish uchun yordamchi vosita. Ularni tayyor ish sifatida topshirmang.</div>
+      <button id="go" class="btn primary big block">⬆️ Yuklash</button>
+      <div id="progressBox" class="stack hidden">
+        <div class="progress"><div id="bar" style="width: 0%"></div></div>
+        <div id="msg" class="small muted center"></div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

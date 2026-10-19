@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Ma'ruza · Ma'ruza Daftari</title>
+  <link rel="stylesheet" href="/css/app.css">
+  <script type="module" src="/js/lecture.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">← Ma'ruza <span>Daftari</span></a>
+    <div class="spacer"></div>
+    <button class="icon-btn" data-theme-toggle aria-label="Rang rejimini almashtirish" title="Kunduzgi / tungi rejim"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button>
+  </header>
+
+  <main class="wrap">
+    <section class="card stack">
+      <h1 id="title"><span class="mark">Yuklanmoqda…</span></h1>
+      <div id="meta" class="small muted"></div>
+      <div id="statusBox" class="stack hidden">
+        <div class="row" style="justify-content: space-between">
+          <span id="statusLabel" class="badge busy"></span>
+          <span id="statusPct" class="small muted"></span>
+        </div>
+        <div class="progress"><div id="statusBar" style="width: 0%"></div></div>
+        <div id="statusText" class="small muted"></div>
+        <div class="small muted">Bu sahifani yopsangiz ham ish davom etadi. Tayyor bo'lganda bot xabar beradi.</div>
+      </div>
+      <div id="errorBox" class="notice warn hidden">
+        <div id="errorText"></div>
+        <button id="retryBtn" class="btn" style="margin-top: 8px">🔁 Qayta urinish</button>
+      </div>
+    </section>
+
+    <div id="playerBox" class="player hidden"><audio id="audio" controls preload="metadata"></audio></div>
+
+    <nav class="tabs" id="tabs" role="tablist"></nav>
+    <section id="panel" class="card"></section>
+
+    <section class="card stack">
+      <h2>Sozlamalar va qayta tahlil</h2>
+      <div>
+        <label for="notes">Izoh: professor nima dedi?</label>
+        <textarea id="notes" maxlength="5000" placeholder="Masalan: professor 2 betlik insho, juma kunigacha dedi. AI buni hisobga oladi."></textarea>
+      </div>
+      <div>
+        <label for="slides">Slaydlar soni</label>
+        <select id="slides"></select>
+      </div>
+      <div class="row">
+        <button id="saveBtn" class="btn">💾 Saqlash</button>
+        <button id="reanalyzeBtn" class="btn marker">✨ Qayta tahlil qilish</button>
+      </div>
+      <p class="small muted">Transkriptni tahrirlab yoki izoh qo'shib, "Qayta tahlil" ni bosing: konspekt va prezentatsiya yangilanadi.</p>
+      <hr style="border: 0; border-top: 1px solid var(--border); width: 100%">
+      <button id="deleteBtn" class="btn danger">🗑 Ma'ruzani o'chirish</button>
+    </section>
+  </main>
+</body>
+</html>

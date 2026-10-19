@@ -1,0 +1,27 @@
+# Secrets — never commit
+.env
+.env.*
+!.env.example
+
+# Dependencies & build
+node_modules/
+dist/
+coverage/
+
+# Local data / temp audio
+tmp/
+uploads/
+*.log
+npm-debug.log*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local data (audio, images) and cloudflared
+data/
+.cloudflared/
+maruza-daftari-data/
+test-output/

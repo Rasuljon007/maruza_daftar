@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#fbf8f1" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#15171c" media="(prefers-color-scheme: dark)">
+  <title>Ma'ruza Daftari</title>
+  <link rel="stylesheet" href="/css/app.css">
+  <script type="module" src="/js/home.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">Ma'ruza <span>Daftari</span></a>
+    <div class="spacer"></div>
+    <button class="icon-btn" data-theme-toggle aria-label="Rang rejimini almashtirish" title="Kunduzgi / tungi rejim"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button>
+    <button id="logout" class="icon-btn" aria-label="Chiqish" title="Chiqish"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 4h4v16h-4"/><path d="M10 8l-4 4 4 4"/><path d="M6 12h10"/></svg></button>
+  </header>
+
+  <main class="wrap">
+    <div id="recovery"></div>
+
+    <section class="card stack">
+      <h1 id="hello"><span class="mark">Ma'ruzalarim</span></h1>
+      <div class="rec-grid">
+        <a class="btn primary big" href="/record.html">🎙️ Yozib olish</a>
+        <a class="btn big" href="/upload.html">⬆️ Fayl yuklash</a>
+      </div>
+      <div class="notice small">📌 Yozib olishdan oldin professordan ruxsat olish tavsiya etiladi.</div>
+      <div class="notice small">🎓 AI materiallari tayyorlanish uchun yordamchi vosita, tayyor ish sifatida topshirish uchun emas.</div>
+    </section>
+
+    <section id="list"></section>
+  </main>
+</body>
+</html>

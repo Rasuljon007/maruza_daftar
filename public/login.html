@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Kirish · Ma'ruza Daftari</title>
+  <link rel="stylesheet" href="/css/app.css">
+  <script type="module" src="/js/login.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">Ma'ruza <span>Daftari</span></a>
+    <div class="spacer"></div>
+    <button class="icon-btn" data-theme-toggle aria-label="Rang rejimini almashtirish" title="Kunduzgi / tungi rejim"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button>
+  </header>
+  <main class="wrap">
+    <section class="card stack">
+      <h1><span class="mark">Xush kelibsiz!</span></h1>
+      <p>Ma'ruzani yozib oling, qolganini AI qiladi: to'liq matn, konspekt, vazifa tahlili va seminar uchun prezentatsiya.</p>
+      <button id="loginBtn" class="btn primary big block">✈️ Telegram orqali kirish</button>
+      <div id="waiting" class="notice hidden">
+        Telegram'da botni oching va <b>✅ Tasdiqlash</b> tugmasini bosing, keyin shu sahifaga qayting.
+        Sahifa o'zi yangilanadi.<br>
+        <a id="botLink" href="#" target="_blank" rel="noopener">Bot ochilmadimi? Shu yerni bosing.</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
