@@ -33,7 +33,8 @@ Noutbuk o'chsa yoki uxlab qolsa sayt ham ishlamaydi. `npm start` ishlab turganda
 
 ## Har kungi ishlatish
 
-- Noutbukda `npm start` (terminal ochiq tursin, noutbuk uxlab qolmasin).
+- Noutbukda `D:\maruza-daftar\start-server.cmd` faylini ikki marta bosing. Server to'xtab qolsa (masalan, tunnel uzilsa) u 10 soniyada o'zi qayta yoqiladi va bot yangi manzilni yuboradi.
+- Windows'ga kirganda o'zi ishga tushishi uchun bir marta `scripts\windows\autostart-yoqish.cmd` ni bosing (o'chirish: `autostart-ochirish.cmd`).
 - Telefonda botga `/sayt` yozing va kelgan havolani oching.
 - Kirish uchun "Telegram orqali kirish" tugmasini bosing va botda "Tasdiqlash"ni bosing.
 - To'xtatish uchun terminalda `Ctrl+C`.

@@ -31,7 +31,12 @@ function startTunnel(port) {
     });
     child.on('exit', (code) => {
       if (!found) resolve({ child: null, error: new Error(`cloudflared exited with code ${code}`) });
-      else console.error(`\n⚠️  Tunnel to'xtadi (kod ${code}). Telefondan kirish ishlamaydi. Serverni qayta ishga tushiring: npm start\n`);
+      else {
+        // The public URL is dead now. Exit so the launcher (start-server.cmd) restarts us
+        // with a fresh tunnel, and the bot sends the new address.
+        console.error(`\n⚠️  Tunnel to'xtadi (kod ${code}). Server qayta ishga tushiriladi…\n`);
+        process.emit('SIGTERM');
+      }
     });
     setTimeout(() => {
       if (!found) resolve({ child, error: new Error('Tunnel manzili 60 soniyada paydo bo\'lmadi') });
@@ -90,10 +95,13 @@ async function main() {
     }
   }
 
+  let stopping = false;
   const stop = async () => {
+    if (stopping) return;
+    stopping = true;
     tunnel?.kill();
     awake?.kill();
-    await shutdown();
+    await shutdown().catch(() => {});
     process.exit(0);
   };
   process.on('SIGINT', stop);
